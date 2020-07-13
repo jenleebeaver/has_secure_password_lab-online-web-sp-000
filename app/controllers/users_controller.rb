@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.creaet(user_params)
+    User.create(user_params)
   end
 
   private
@@ -18,4 +18,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
 
+end
+
+def create
+  @user = User.create(user_params)
+  return redirect_to controller: 'users', action: 'new' unless @user.save
+  session[:user_id] = @user.id
+  redirect_to controller: 'welcome', action: 'home'
 end
