@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to controller: 'users', action: 'welcome'
   end
 
-
+#this destroy method is not routed, but good to have as realistic ref 
   # def destroy
   #   session.delete :user_id
   #   redirect_to '/'
